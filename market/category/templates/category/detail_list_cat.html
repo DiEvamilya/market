@@ -1,0 +1,21 @@
+{% extends 'category/base_cat.html' %}
+
+{% block content %}
+
+
+
+<h1>Продукт по категории: "{{ category.name }}"</h1>
+
+<div class="product-list">
+    {% for product in products %}
+        <div class="product">
+            {% if product.image %}
+                <img style="width: 200px" src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+            <h2><a href="{% url 'detail' product.slug %}">{{ product.name }}</a></h2>
+            <p>Price: {{ product.price }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

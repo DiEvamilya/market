@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+</head>
+<body>
+{% block image %}
+        <img id="banner" src="{% static 'img/banner.jpg' %}">
+    {% endblock %}
+<div>
+    <a href=" {% url 'login' %} ">Страница входа</a>
+    <a href=" {% url 'register' %} ">Регистрация</a>
+</div>
+
+<p><a href="{% url 'list' %}">MARKET</a></p>
+<li><a href="{% url 'create' %}">Создать продукт</a></li>
+<li><a href="{% url 'create_cat' %}">Создать категорию</a></li>
+
+{% block content %}
+{% endblock %}
+</body>
+</html>

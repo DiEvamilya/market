@@ -1,0 +1,29 @@
+{% extends 'category/base_cat.html' %}
+
+{% block content %}
+<div class="flex">
+        <p>Категории: </p>
+        {% for category in categories %}
+               <span><a href="{% url 'list_cat' category.slug %}">{{ category.name }}</a></span>
+        <button><a href="{% url 'update_cat' category.slug %}">Изменить</a></button>
+        <button><a href="{% url 'delete_cat' category.slug %}">Удалить</a></button><br>
+
+        {% endfor %}
+
+    </div>
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.prev_page_number }}">prev</a>
+    {% endif %}
+    {% for p in page_obj.paginator.page_range %}
+        {% if page_obj.number != p %}
+            <a href="?page={{ p }}">{{ p }}</a>
+        {% else %}
+            <span>{{ p }}</span>
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next</a>
+    {% endif %}
+
+{% endblock %}

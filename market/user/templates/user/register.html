@@ -1,0 +1,21 @@
+{% extends 'user/base.html' %}
+
+
+{% block content %}
+
+{{ form.errors }}
+<form method="POST">
+    {% csrf_token %}
+    <p>
+    username:
+    {{ form.username }}
+    </p>
+  <p>email:  {{ form.email }}</p>
+  <p>password1:  {{ form.password1 }}</p>
+  <p>password2:  {{ form.password2 }}</p>
+<button>register</button>
+</form>
+
+<button><a href="{% url 'list' %}">Вернуться</a></button>
+{% endblock %}
+

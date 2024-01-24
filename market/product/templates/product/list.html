@@ -1,0 +1,45 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+
+    <form action="" method="get">
+        <input type="text" name="search">
+        <button>search</button>
+    </form>
+
+    <div class="flex">
+        <p><a href="{% url 'cat_list' %}">Категории: </a></p>
+        {% for category in categories %}
+               <div><a href="{% url 'list_cat' category.slug %}">{{ category.name }}</a></div>
+        {% endfor %}
+
+    </div>
+
+    <div class="blog">
+        {% for product in products %}
+            <div class="product">
+                {% if product.image %}
+                <img class="foto" src="{{ product.image.url }}" alt="">
+            {% endif %}
+                <h4><a href="{% url 'detail' product.slug %}" class="product">{{ product.name }}</a></h4>
+                <p>{{ product.description }}</p>
+                <p>{{ product.price}} $</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.prev_page_number }}">prev</a>
+    {% endif %}
+    {% for p in page_obj.paginator.page_range %}
+        {% if page_obj.number != p %}
+            <a href="?page={{ p }}">{{ p }}</a>
+        {% else %}
+            <span>{{ p }}</span>
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next</a>
+    {% endif %}
+{% endblock %}

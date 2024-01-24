@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+}
+
+#banner{
+    width: 1980px;
+    min-width: 200px;
+    height: 300px;
+    margin: 0;
+}
+body{
+    background-color: aliceblue;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    gap: 10px;
+
+}
+.foto {
+    width: 300px;
+    height: 400px;
+    gap: 5px;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+}
+
+div.product{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.blog{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+
+ }
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    color: #a41515;
+}
+
+p{
+    margin-bottom: 5px;
+}
+
+form{
+    margin-left: 200px;
+}

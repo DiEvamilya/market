@@ -1,0 +1,16 @@
+{% extends 'category/base_cat.html' %}
+
+
+{% block content %}
+ {% if request.user.is_authenticated %}
+    <p>Вы точно хотите удалить продукт?{{ category.name }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>delete</button>
+    </form>
+{% else %}
+        <h1 style="color: red">Авторизуйся</h1>
+    {% endif %}
+{% endblock %}
+

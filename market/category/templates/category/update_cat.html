@@ -1,0 +1,14 @@
+{% extends 'category/base_cat.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>save</button>
+        </form>
+    {% else %}
+        <h1 style="color: red">Авторизуйся</h1>
+    {% endif %}
+{% endblock %}
+
